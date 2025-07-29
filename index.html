@@ -3,108 +3,400 @@
     <head>
       <meta charset='utf-8'>
       <meta name='viewport' content='width=device-width'>
-      <title>Privacy Policy</title>
-      <style> body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; padding:1em; } </style>
+      <title>Chumporn Kaewpitak | Flutter Developer Portfolio</title>
+      <style>
+        :root {
+          --primary-bg: #f3f6fb;
+          --secondary-bg: #fff;
+          --card-bg: #fff;
+          --accent: #0a66c2;
+          --accent-hover: #004182;
+          --accent-gradient: linear-gradient(90deg, #0a66c2 0%, #7f53ff 100%);
+          --text-main: #23292f;
+          --text-secondary: #4b587c;
+          --text-muted: #7a8599;
+          --border-radius: 16px;
+          --shadow: 0 4px 32px rgba(0,0,0,0.08);
+        }
+        html, body {
+          height: 100%;
+        }
+        body {
+          font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+          background: var(--primary-bg);
+          margin: 0;
+          padding: 0;
+          color: var(--text-main);
+          min-height: 100vh;
+        }
+        .container {
+          max-width: 900px;
+          margin: 40px auto;
+          background: var(--secondary-bg);
+          border-radius: var(--border-radius);
+          box-shadow: var(--shadow);
+          padding: 32px 24px;
+        }
+        h2 {
+          font-size: 2.2em;
+          margin-bottom: 0.5em;
+          color: var(--text-main);
+          letter-spacing: 1px;
+        }
+        #profile {
+          background: var(--card-bg);
+          border-radius: var(--border-radius);
+          box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+          padding: 32px 32px 32px 24px;
+          margin-bottom: 2.5em;
+          display: flex;
+          align-items: flex-start;
+          gap: 32px;
+          flex-wrap: wrap;
+        }
+        #profile img {
+          border: 4px solid #e6e6e6;
+          background: #f3f6fb;
+          width: 180px;
+          height: 180px;
+          border-radius: 50%;
+          box-shadow: 0 2px 12px rgba(10,102,194,0.08);
+          object-fit: cover;
+        }
+        #profile-content {
+          flex: 1;
+          min-width: 220px;
+        }
+        #profile-content h1 {
+          margin: 0 0 0.15em 0;
+          font-size: 2.1em;
+          color: #23292f;
+          font-weight: 700;
+        }
+        #profile-content .headline {
+          color: var(--text-secondary);
+          font-size: 1.15em;
+          margin-bottom: 0.3em;
+        }
+        #profile-content .location {
+          color: var(--text-muted);
+          font-size: 1em;
+          margin-bottom: 1.1em;
+        }
+        .profile-actions {
+          display: flex;
+          gap: 12px;
+          margin-bottom: 1.1em;
+        }
+        .profile-btn {
+          background: var(--accent);
+          color: #fff;
+          border: none;
+          border-radius: 100px;
+          padding: 8px 22px;
+          font-size: 1em;
+          font-weight: 600;
+          cursor: pointer;
+          transition: background 0.2s;
+          display: flex;
+          align-items: center;
+          gap: 7px;
+          box-shadow: 0 2px 8px rgba(10,102,194,0.08);
+        }
+        .profile-btn:hover {
+          background: var(--accent-hover);
+        }
+        .profile-skills {
+          display: flex;
+          gap: 8px;
+          flex-wrap: wrap;
+        }
+        .profile-skills span {
+          background: #eaf1fb;
+          color: #0a66c2;
+          padding: 4px 14px;
+          border-radius: 16px;
+          font-size: 1em;
+          font-weight: 500;
+          margin-bottom: 6px;
+          display: inline-block;
+          box-shadow: 0 1px 4px rgba(10,102,194,0.04);
+        }
+        #repo-list {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+          gap: 24px;
+          list-style: none;
+          padding: 0;
+        }
+        .repo-card {
+          background: var(--card-bg);
+          border-radius: 18px;
+          box-shadow: 0 4px 24px rgba(10,102,194,0.07), 0 1.5px 6px rgba(0,0,0,0.04);
+          padding: 0 0 18px 0;
+          transition: box-shadow 0.22s, transform 0.18s;
+          display: flex;
+          flex-direction: column;
+          min-height: 140px;
+          border: none;
+          position: relative;
+          overflow: hidden;
+        }
+        .repo-card::before {
+          content: '';
+          display: block;
+          height: 6px;
+          width: 100%;
+          background: var(--accent-gradient);
+          border-top-left-radius: 18px;
+          border-top-right-radius: 18px;
+        }
+        .repo-card:hover {
+          box-shadow: 0 10px 36px rgba(10,102,194,0.13), 0 2px 8px rgba(0,0,0,0.07);
+          transform: translateY(-4px) scale(1.025);
+        }
+        .repo-title {
+          font-size: 1.22em;
+          font-weight: 700;
+          color: var(--accent);
+          margin: 1.1em 0 0.3em 0;
+          text-decoration: none;
+          padding: 0 1.2em;
+          letter-spacing: 0.2px;
+          transition: color 0.18s;
+        }
+        .repo-title:hover {
+          color: var(--accent-hover);
+        }
+        .repo-desc {
+          color: var(--text-secondary);
+          font-size: 1.04em;
+          margin-bottom: 0.7em;
+          padding: 0 1.2em;
+          min-height: 36px;
+        }
+        .repo-meta {
+          margin-top: auto;
+          font-size: 0.97em;
+          color: var(--text-muted);
+          padding: 0 1.2em;
+          margin-bottom: 0.7em;
+        }
+        @media (max-width: 900px) {
+          .container {
+            padding: 12px 2vw;
+          }
+          #profile {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 18px;
+            padding: 18px 8px;
+          }
+          #profile img {
+            width: 120px;
+            height: 120px;
+          }
+        }
+        @media (max-width: 600px) {
+          .container {
+            padding: 4px 0;
+          }
+          h2 {
+            font-size: 1.3em;
+          }
+          #profile {
+            padding: 10px 2px;
+            gap: 10px;
+          }
+          #profile img {
+            width: 90px;
+            height: 90px;
+          }
+        }
+      </style>
     </head>
     <body>
-    <strong>Privacy Policy</strong> <p>
-                  chumporn kaewpitak built the firebaseDemo app as
-                  a Free app. This SERVICE is provided by
-                  chumporn kaewpitak at no cost and is intended for use as
-                  is.
-                </p> <p>
-                  This page is used to inform visitors regarding my
-                  policies with the collection, use, and disclosure of Personal
-                  Information if anyone decided to use my Service.
-                </p> <p>
-                  If you choose to use my Service, then you agree to
-                  the collection and use of information in relation to this
-                  policy. The Personal Information that I collect is
-                  used for providing and improving the Service. I will not use or share your information with
-                  anyone except as described in this Privacy Policy.
-                </p> <p>
-                  The terms used in this Privacy Policy have the same meanings
-                  as in our Terms and Conditions, which is accessible at
-                  firebaseDemo unless otherwise defined in this Privacy Policy.
-                </p> <p><strong>Information Collection and Use</strong></p> <p>
-                  For a better experience, while using our Service, I
-                  may require you to provide us with certain personally
-                  identifiable information, including but not limited to chumporn kaewpitak. The information that
-                  I request will be retained on your device and is not collected by me in any way.
-                </p> <div><p>
-                    The app does use third party services that may collect
-                    information used to identify you.
-                  </p> <p>
-                    Link to privacy policy of third party service providers used
-                    by the app
-                  </p> <ul><li><a href="https://www.google.com/policies/privacy/" target="_blank" rel="noopener noreferrer">Google Play Services</a></li><!----><li><a href="https://firebase.google.com/policies/analytics" target="_blank" rel="noopener noreferrer">Google Analytics for Firebase</a></li><li><a href="https://firebase.google.com/support/privacy/" target="_blank" rel="noopener noreferrer">Firebase Crashlytics</a></li><li><a href="https://www.facebook.com/about/privacy/update/printable" target="_blank" rel="noopener noreferrer">Facebook</a></li><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----></ul></div> <p><strong>Log Data</strong></p> <p>
-                  I want to inform you that whenever you
-                  use my Service, in a case of an error in the app
-                  I collect data and information (through third party
-                  products) on your phone called Log Data. This Log Data may
-                  include information such as your device Internet Protocol
-                  (“IP”) address, device name, operating system version, the
-                  configuration of the app when utilizing my Service,
-                  the time and date of your use of the Service, and other
-                  statistics.
-                </p> <p><strong>Cookies</strong></p> <p>
-                  Cookies are files with a small amount of data that are
-                  commonly used as anonymous unique identifiers. These are sent
-                  to your browser from the websites that you visit and are
-                  stored on your device's internal memory.
-                </p> <p>
-                  This Service does not use these “cookies” explicitly. However,
-                  the app may use third party code and libraries that use
-                  “cookies” to collect information and improve their services.
-                  You have the option to either accept or refuse these cookies
-                  and know when a cookie is being sent to your device. If you
-                  choose to refuse our cookies, you may not be able to use some
-                  portions of this Service.
-                </p> <p><strong>Service Providers</strong></p> <p>
-                  I may employ third-party companies and
-                  individuals due to the following reasons:
-                </p> <ul><li>To facilitate our Service;</li> <li>To provide the Service on our behalf;</li> <li>To perform Service-related services; or</li> <li>To assist us in analyzing how our Service is used.</li></ul> <p>
-                  I want to inform users of this Service
-                  that these third parties have access to your Personal
-                  Information. The reason is to perform the tasks assigned to
-                  them on our behalf. However, they are obligated not to
-                  disclose or use the information for any other purpose.
-                </p> <p><strong>Security</strong></p> <p>
-                  I value your trust in providing us your
-                  Personal Information, thus we are striving to use commercially
-                  acceptable means of protecting it. But remember that no method
-                  of transmission over the internet, or method of electronic
-                  storage is 100% secure and reliable, and I cannot
-                  guarantee its absolute security.
-                </p> <p><strong>Links to Other Sites</strong></p> <p>
-                  This Service may contain links to other sites. If you click on
-                  a third-party link, you will be directed to that site. Note
-                  that these external sites are not operated by me.
-                  Therefore, I strongly advise you to review the
-                  Privacy Policy of these websites. I have
-                  no control over and assume no responsibility for the content,
-                  privacy policies, or practices of any third-party sites or
-                  services.
-                </p> <p><strong>Children’s Privacy</strong></p> <p>
-                  These Services do not address anyone under the age of 13.
-                  I do not knowingly collect personally
-                  identifiable information from children under 13 years of age. In the case
-                  I discover that a child under 13 has provided
-                  me with personal information, I immediately
-                  delete this from our servers. If you are a parent or guardian
-                  and you are aware that your child has provided us with
-                  personal information, please contact me so that
-                  I will be able to do necessary actions.
-                </p> <p><strong>Changes to This Privacy Policy</strong></p> <p>
-                  I may update our Privacy Policy from
-                  time to time. Thus, you are advised to review this page
-                  periodically for any changes. I will
-                  notify you of any changes by posting the new Privacy Policy on
-                  this page.
-                </p> <p>This policy is effective as of 2021-08-11</p> <p><strong>Contact Us</strong></p> <p>
-                  If you have any questions or suggestions about my
-                  Privacy Policy, do not hesitate to contact me at chumpitak@gmail.com.
-                </p> <p>This privacy policy page was created at <a href="https://privacypolicytemplate.net" target="_blank" rel="noopener noreferrer">privacypolicytemplate.net </a>and modified/generated by <a href="https://app-privacy-policy-generator.nisrulz.com/" target="_blank" rel="noopener noreferrer">App Privacy Policy Generator</a></p>
+    <div class="container">
+      <section id="profile">
+        <img src="https://media.licdn.com/dms/image/v2/D4D03AQHBK5yqZamCYA/profile-displayphoto-shrink_800_800/B4DZS2dPIYHIAg-/0/1738227905943?e=1756944000&v=beta&t=2HDFVmKVLNoZCfOmZeD_Xi9zEt1yFG1tn_dF45PR_-o" alt="Chumporn Kaewpitak profile picture">
+        <div id="profile-content">
+          <h1>Chumporn Kaewpitak</h1>
+          <div class="headline">Software Engineer</div>
+          <div class="location">Phaya Thai, Bangkok, Thailand</div>
+          <div class="profile-bio" style="margin-bottom:1.1em;color:var(--text-secondary);font-size:1.08em;line-height:1.6;max-width:600px;">
+            I am a Flutter Developer at Living Insider, specializing in mobile app development, state management, and Firebase integration. Passionate about building scalable, high-performance applications using Clean Architecture. Known for my enthusiasm, creativity, and collaborative mindset, I thrive in dynamic environments where innovation and teamwork drive success.
+          </div>
+          <div class="profile-actions">
+            <a href="https://www.linkedin.com/in/chumporn-kaewpitak-381258249/" target="_blank" rel="noopener noreferrer" class="profile-btn">
+              <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" style="width:18px;height:18px;vertical-align:middle;"> LinkedIn
+            </a>
+            <a href="https://github.com/zmonx" target="_blank" rel="noopener noreferrer" class="profile-btn" style="background:#23292f;">
+              <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub" style="width:18px;height:18px;vertical-align:middle;"> GitHub
+            </a>
+          </div>
+          <div class="profile-skills">
+            <span>#flutter</span>
+            <span>#dart</span>
+            <span>#firebase</span>
+            <span>#bloc</span>
+            <span>#getx</span>
+            <span>#clean-architecture</span>
+            <span>#cross-platform</span>
+            <span>#plugin-architecture</span>
+            <span>#mobile</span>
+            <span>#android</span>
+          </div>
+        </div>
+      </section>
+      <section id="education" style="background:var(--card-bg);border-radius:var(--border-radius);box-shadow:0 2px 16px rgba(0,0,0,0.06);padding:24px 24px 18px 24px;margin-bottom:2.5em;">
+        <h2 style="margin-top:0;margin-bottom:1.2em;font-size:1.5em;color:var(--accent);letter-spacing:0.5px;">Education</h2>
+        <div style="display:flex;gap:18px;align-items:flex-start;">
+          <img src="https://media.licdn.com/dms/image/v2/D560BAQEPyyp0t22j0w/company-logo_200_200/company-logo_200_200/0/1706006775340?e=1756944000&v=beta&t=r9ouexCXmsEBVLR8TbUs65uLJwL1UCWWL-he2dSyZus" alt="Walailak University logo" style="width:48px;height:48px;background:#f3f6fb;border-radius:12px;object-fit:contain;box-shadow:0 1px 4px #e6e6e6;">
+          <div>
+            <div style="font-weight:600;font-size:1.1em;color:var(--text-main);">Walailak University (มหาวิทยาลัยวลัยลักษณ์)</div>
+            <div style="color:var(--text-secondary);font-size:1em;">Bachelor of Science (Software Engineering)</div>
+            <div style="color:var(--text-secondary);font-size:1em;">May 2018 - May 2022</div>
+            <div style="color:var(--text-secondary);font-size:1em;">GPA: 3.13</div>
+            <ul style="margin:0.5em 0 0 1.2em;padding:0 0 0 0.5em;color:var(--text-secondary);font-size:0.98em;">
+              <li>Activities: Badminton, Volleyball, Karaoke, K-drama</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" style="background:var(--card-bg);border-radius:var(--border-radius);box-shadow:0 2px 16px rgba(0,0,0,0.06);padding:28px 24px 18px 24px;margin-bottom:2.5em;">
+        <h2 style="margin-top:0;margin-bottom:1.2em;font-size:1.5em;color:var(--accent);letter-spacing:0.5px;">Experience</h2>
+        <div style="display:flex;flex-direction:column;gap:1.5em;">
+          <div style="display:flex;gap:18px;align-items:flex-start;">
+            <img src="https://media.licdn.com/dms/image/v2/C560BAQFcRDH7xnBMsw/company-logo_200_200/company-logo_200_200/0/1676862354669/livinginsider_logo?e=1756944000&v=beta&t=CNHkZZFtr4LF56PUARMULbzKow_TMCEDNnOiT5124rw" alt="Livinginsider logo" style="width:48px;height:48px;background:#f3f6fb;border-radius:12px;object-fit:contain;box-shadow:0 1px 4px #e6e6e6;">
+            <div>
+              <div style="font-weight:600;font-size:1.1em;color:var(--text-main);">Flutter Developer</div>
+              <div style="color:var(--text-secondary);font-size:1em;">Livinginsider (Apr 2024 - Present)</div>
+              <ul style="margin:0.5em 0 0 1.2em;padding:0 0 0 0.5em;color:var(--text-secondary);font-size:0.98em;">
+                <li>Livinginsider App (Flutter): One-stop real estate marketplace platform</li>
+                <li>Implemented BLoC for state management, GoRouter for navigation, and Clean Architecture</li>
+                <li>Integrated Dio for RESTful APIs, Firebase Push Notifications, and Analytics</li>
+                <li>LivingPlus+ (Flutter): Rental Management & Payment Solutions</li>
+                <li>Used GetX for state management, MVVM pattern, and built UI from Figma designs</li>
+              </ul>
+              <div style="margin-top:0.5em;color:var(--accent);font-size:0.97em;">Skills: Flutter, Agile Methodologies, Clean Architecture, Cross-platform Development, Mobile Applications, Bloc, GetX, GetIt</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:18px;align-items:flex-start;">
+            <img src="https://media.licdn.com/dms/image/v2/D560BAQHYvkmhLB1TZA/img-crop_100/B56ZfDr5blG0AM-/0/1751334754874?e=1756944000&v=beta&t=jgrSZcI4x5Ct7MlgX7tRZ-MyOOtneizu522ihggaI84" alt="AIS logo" style="width:48px;height:48px;background:#f3f6fb;border-radius:12px;object-fit:contain;box-shadow:0 1px 4px #e6e6e6;">
+            <div>
+              <div style="font-weight:600;font-size:1.1em;color:var(--text-main);">Mobile Developer (Flutter)</div>
+              <div style="color:var(--text-secondary);font-size:1em;">AIS - Advanced Info Services Plc. (May 2022 - Mar 2024)</div>
+              <ul style="margin:0.5em 0 0 1.2em;padding:0 0 0 0.5em;color:var(--text-secondary);font-size:0.98em;">
+                <li>MyAIS app (Flutter): The ultimate service experience all at your fingertips</li>
+                <li>Manage all your AIS services with one login with myID</li>
+                <li>Check balance, pay bills, top-up</li>
+                <li>LTC Smart Rewards (Kotlin native): Leading points collection and rewards program in Lao PDR</li>
+                <li>Smart Rewards, the only app you need to complement your modern digital lifestyle</li>
+              </ul>
+              <div style="margin-top:0.5em;color:var(--accent);font-size:0.97em;">Skills: Kotlin, Flutter, Cross-platform Development, Clean Architecture, Android Development, Flutter Modularization</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:18px;align-items:flex-start;">
+            <img src="https://media.licdn.com/dms/image/v2/D560BAQEw6G2TKfGyHg/company-logo_200_200/company-logo_200_200/0/1688357176251/appsynth_asia_logo?e=1756944000&v=beta&t=JWKa_caBqrowAgdmeku36zjR-v99EDkDT3zaOG8Rgz0" alt="Appsynth logo" style="width:48px;height:48px;background:#f3f6fb;border-radius:12px;object-fit:contain;box-shadow:0 1px 4px #e6e6e6;">
+            <div>
+              <div style="font-weight:600;font-size:1.1em;color:var(--text-main);">Internship Android Developer</div>
+              <div style="color:var(--text-secondary);font-size:1em;">Appsynth (Jun 2021 - Sep 2021)</div>
+              <ul style="margin:0.5em 0 0 1.2em;padding:0 0 0 0.5em;color:var(--text-secondary);font-size:0.98em;">
+                <li>Allmember 7-11 app (Android):</li>
+                <ul style="margin:0.2em 0 0 1.2em;padding:0 0 0 0.5em;color:var(--text-secondary);font-size:0.97em;">
+                  <li>7Delivery: Order products from 7-Eleven via 7App and have them delivered by your nearest store staff. Service available 07:00 – 20:00 in delivery areas.</li>
+                  <li>ALL ONLINE by 7-Eleven: Shop for 7-Eleven products anytime, anywhere, with free delivery to your local store and 24/7 pickup.</li>
+                  <li>Top-up and purchase TrueMove H prepaid mobile packages easily at any time.</li>
+                  <li>TrueMoney Wallet via 7App: Pay conveniently and securely with barcodes, enjoy cashless payments, and receive exclusive benefits at 7-Eleven.</li>
+                </ul>
+                <li>Worked on Android app modularization and clean architecture</li>
+                <li>Practiced Agile methodologies, Scrum, and Figma for UI design</li>
+              </ul>
+              <div style="margin-top:0.5em;color:var(--accent);font-size:0.97em;">Skills: Agile Methodologies, Kotlin, Scrum, Figma, Clean Architecture, Android Modularization, Android Development</div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <section id="skills" style="background:var(--card-bg);border-radius:var(--border-radius);box-shadow:0 2px 16px rgba(0,0,0,0.06);padding:24px 24px 18px 24px;margin-bottom:2.5em;">
+        <h2 style="margin-top:0;margin-bottom:1.2em;font-size:1.5em;color:var(--accent);letter-spacing:0.5px;">Technical Skills</h2>
+        <div style="display:flex;flex-wrap:wrap;gap:32px;">
+          <div style="min-width:220px;flex:1;">
+            <div style="font-weight:600;color:var(--text-main);margin-bottom:0.3em;">Primary Expertise</div>
+            <ul style="margin:0 0 1em 1.2em;padding:0 0 0 0.5em;color:var(--text-secondary);font-size:1em;">
+              <li>Flutter &amp; Dart</li>
+              <li>State Management: BLoC, GetX</li>
+              <li>Dependency Injection: GetIt</li>
+              <li>Routing: GoRouter</li>
+              <li>Firebase (Auth, Firestore, Analytics)</li>
+              <li>RESTful API integration</li>
+            </ul>
+            <div style="font-weight:600;color:var(--text-main);margin-bottom:0.3em;">Expanding Skills In</div>
+            <ul style="margin:0 0 1em 1.2em;padding:0 0 0 0.5em;color:var(--text-secondary);font-size:1em;">
+              <li>Flutter Radio Streaming Development</li>
+              <li>Event Streaming with Kafka + Flutter</li>
+            </ul>
+            <div style="font-weight:600;color:var(--text-main);margin-bottom:0.3em;">Version Control</div>
+            <ul style="margin:0 0 0 1.2em;padding:0 0 0 0.5em;color:var(--text-secondary);font-size:1em;">
+              <li>BitBucket, GitHub, GitLab</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section id="portfolio">
+        <h2>My GitHub Portfolio</h2>
+        <ul id="repo-list">Loading repositories...</ul>
+      </section>
+    </div>
+    <script>
+      async function fetchRepos() {
+        const list = document.getElementById('repo-list');
+        try {
+          const res = await fetch('https://api.github.com/users/zmonx/repos');
+          if (!res.ok) throw new Error('Network response was not ok');
+          let repos = await res.json();
+          if (!Array.isArray(repos) || repos.length === 0) {
+            list.innerHTML = '<li>No repositories found.</li>';
+            return;
+          }
+          // Filter repos created on or after 2021-08-04
+          const filterDate = new Date('2021-01-04');
+          repos = repos.filter(repo => new Date(repo.created_at) >= filterDate);
+          // Sort by last updated date (descending)
+          repos = repos.sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
+          list.innerHTML = '';
+          repos.forEach(repo => {
+            const li = document.createElement('li');
+            li.className = 'repo-card';
+            // Use shields.io for language badge if language is available
+            let langBadge = '';
+            if (repo.language) {
+              const lang = encodeURIComponent(repo.language);
+              langBadge = `<img src='https://img.shields.io/badge/${lang}--informational?style=flat&logo=${lang}&logoColor=white' alt='${repo.language}' style='height:20px;margin-bottom:-4px;margin-right:6px;'>`;
+            }
+            // Add stars and forks
+            let stats = `<span style='margin-right:12px;display:inline-flex;align-items:center;'><svg width='16' height='16' fill='gold' style='margin-right:3px;' viewBox='0 0 20 20'><path d='M10 15l-5.878 3.09 1.122-6.545L.488 6.91l6.561-.955L10 0l2.951 5.955 6.561.955-4.756 4.635 1.122 6.545z'/></svg>${repo.stargazers_count}</span>`;
+            stats += `<span style='display:inline-flex;align-items:center;'><svg width='15' height='15' fill='#aaa' style='margin-right:3px;' viewBox='0 0 24 24'><path d='M12 5.69l5 4.5V18h-3v-4H10v4H7V10.19l5-4.5m0-2.19L2 9.5V20a2 2 0 002 2h5v-6h6v6h5a2 2 0 002-2V9.5l-10-6z'/></svg>${repo.forks_count}</span>`;
+            // Add a subtle background icon for visual interest
+            li.innerHTML = `
+              <div style="position:absolute;right:0;bottom:0;opacity:0.07;pointer-events:none;font-size:7em;line-height:1;z-index:0;">
+                <svg width="90" height="90" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.84 3.66 8.84 8.36 9.74.61.11.84-.26.84-.58v-2.02c-3.4.74-4.12-1.64-4.12-1.64-.56-1.42-1.36-1.8-1.36-1.8-1.11-.76.08-.75.08-.75 1.23.09 1.88 1.26 1.88 1.26 1.09 1.87 2.86 1.33 3.56 1.02.11-.79.43-1.33.78-1.64-2.71-.31-5.56-1.36-5.56-6.06 0-1.34.47-2.44 1.24-3.3-.12-.31-.54-1.56.12-3.25 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 013.01-.4c1.02.01 2.05.14 3.01.4 2.29-1.55 3.3-1.23 3.3-1.23.66 1.69.24 2.94.12 3.25.77.86 1.24 1.96 1.24 3.3 0 4.71-2.86 5.75-5.58 6.06.44.38.83 1.13.83 2.28v3.38c0 .32.23.7.85.58C18.34 20.84 22 16.84 22 12c0-5.52-4.48-10-10-10z" fill="#0a66c2"/></svg>
+              </div>
+              <a class="repo-title" href="${repo.html_url}" target="_blank" rel="noopener noreferrer">${repo.name}</a>
+              <div class="repo-desc">${repo.description ? repo.description : ''}</div>
+              <div class="repo-meta" style="color:var(--accent);z-index:1;position:relative;">
+                ${langBadge} ${stats}<br>Updated: ${new Date(repo.updated_at).toLocaleDateString()}
+              </div>
+            `;
+            list.appendChild(li);
+          });
+        } catch (e) {
+          list.innerHTML = '<li>Failed to load repositories.</li>';
+        }
+      }
+      fetchRepos();
+    </script>
     </body>
     </html>
       
