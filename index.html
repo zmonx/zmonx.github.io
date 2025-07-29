@@ -267,44 +267,47 @@
 
 <body>
   <div class="container">
-    <section id="profile">
-      <img style="margin: 1em;"
-        src="https://media.licdn.com/dms/image/v2/D4D03AQHBK5yqZamCYA/profile-displayphoto-shrink_800_800/B4DZS2dPIYHIAg-/0/1738227905943?e=1756944000&v=beta&t=2HDFVmKVLNoZCfOmZeD_Xi9zEt1yFG1tn_dF45PR_-o"
-        alt="Chumporn Kaewpitak profile picture">
-      <div id="profile-content" style="margin: 1em;">
-        <h1>Chumporn Kaewpitak</h1>
-        <div class="headline">Software Engineer</div>
-        <div class="location">Phaya Thai, Bangkok, Thailand</div>
-        <div class="profile-bio" style="color:var(--text-secondary);font-size:1.08em;line-height:1.6;max-width:600px;">
-          I am a Flutter Developer at Living Insider, specializing in mobile app development, state management, and
-          Firebase integration. Passionate about building scalable, high-performance applications using Clean
-          Architecture. Known for my enthusiasm, creativity, and collaborative mindset, I thrive in dynamic environments
-          where innovation and teamwork drive success.
+    <section id="profile" style="position:relative;overflow:hidden;background:var(--card-bg);border-radius:var(--border-radius);box-shadow:0 6px 32px rgba(10,102,194,0.10),0 1.5px 8px rgba(0,0,0,0.06);padding:40px 32px 36px 32px;margin-bottom:2.5em;display:flex;align-items:center;gap:40px;flex-wrap:wrap;min-height:260px;">
+      <!-- Subtle background icon for visual interest -->
+      <div style="position:absolute;right:-40px;bottom:-40px;opacity:0.08;pointer-events:none;z-index:0;">
+        <svg width="180" height="180" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.84 3.66 8.84 8.36 9.74.61.11.84-.26.84-.58v-2.02c-3.4.74-4.12-1.64-4.12-1.64-.56-1.42-1.36-1.8-1.36-1.8-1.11-.76.08-.75.08-.75 1.23.09 1.88 1.26 1.88 1.26 1.09 1.87 2.86 1.33 3.56 1.02.11-.79.43-1.33.78-1.64-2.71-.31-5.56-1.36-5.56-6.06 0-1.34.47-2.44 1.24-3.3-.12-.31-.54-1.56.12-3.25 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 013.01-.4c1.02.01 2.05.14 3.01.4 2.29-1.55 3.3-1.23 3.3-1.23.66 1.69.24 2.94.12 3.25.77.86 1.24 1.96 1.24 3.3 0 4.71-2.86 5.75-5.58 6.06.44.38.83 1.13.83 2.28v3.38c0 .32.23.7.85.58C18.34 20.84 22 16.84 22 12c0-5.52-4.48-10-10-10z" fill="#0a66c2"/></svg>
+      </div>
+      <!-- Profile image with gradient border -->
+      <div style="position:relative;z-index:1;">
+        <div style="background:linear-gradient(135deg,#0a66c2 60%,#7f53ff 100%);padding:4px;border-radius:50%;display:inline-block;box-shadow:0 2px 16px rgba(10,102,194,0.13);">
+          <img src="https://media.licdn.com/dms/image/v2/D4D03AQHBK5yqZamCYA/profile-displayphoto-shrink_800_800/B4DZS2dPIYHIAg-/0/1738227905943?e=1756944000&v=beta&t=2HDFVmKVLNoZCfOmZeD_Xi9zEt1yFG1tn_dF45PR_-o" alt="Chumporn Kaewpitak profile picture" style="width:160px;height:160px;border-radius:50%;border:4px solid #fff;object-fit:cover;display:block;">
         </div>
-        <br />
-        <div class="profile-actions">
-          <a href="https://www.linkedin.com/in/chumporn-kaewpitak-381258249/" target="_blank" rel="noopener noreferrer"
-            class="profile-btn">
-            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn"
-              style="width:18px;height:18px;vertical-align:middle;"> LinkedIn
+      </div>
+      <!-- Profile content -->
+      <div id="profile-content" style="flex:1;min-width:220px;z-index:1;">
+        <h1 style="margin:0 0 0.18em 0;font-size:2.3em;color:#23292f;font-weight:700;letter-spacing:0.5px;">Chumporn Kaewpitak</h1>
+        <div class="headline" style="color:var(--accent);font-size:1.18em;font-weight:600;margin-bottom:0.2em;">Software Engineer</div>
+        <div class="location" style="color:var(--text-muted);font-size:1.05em;margin-bottom:1.1em;display:flex;align-items:center;gap:7px;">
+          <svg width="18" height="18" fill="#7a8599" style="margin-bottom:-2px;" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Phaya Thai, Bangkok, Thailand
+        </div>
+        <div class="profile-bio" style="color:var(--text-secondary);font-size:1.13em;line-height:1.7;max-width:650px;background:rgba(10,102,194,0.06);padding:14px 18px 14px 18px;border-radius:12px;margin-bottom:1.2em;box-shadow:0 1px 6px rgba(10,102,194,0.04);">
+          I am a <span style="color:var(--accent);font-weight:600;">Flutter Developer</span> at Living Insider, specializing in mobile app development, state management, and Firebase integration. Passionate about building scalable, high-performance applications using <span style="color:var(--accent);font-weight:600;">Clean Architecture</span>. Known for my enthusiasm, creativity, and collaborative mindset, I thrive in dynamic environments where innovation and teamwork drive success.
+        </div>
+        <div class="profile-actions" style="display:flex;gap:14px;margin-bottom:1.2em;">
+          <a href="https://www.linkedin.com/in/chumporn-kaewpitak-381258249/" target="_blank" rel="noopener noreferrer" class="profile-btn" style="background:var(--accent);color:#fff;box-shadow:0 2px 8px rgba(10,102,194,0.10);font-size:1.07em;padding:10px 26px;">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" style="width:20px;height:20px;vertical-align:middle;">&nbsp;LinkedIn
           </a>
-          <a href="https://github.com/zmonx" target="_blank" rel="noopener noreferrer" class="profile-btn"
-            style="background:#23292f;">
-            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub"
-              style="width:18px;height:18px;vertical-align:middle;"> GitHub
+          <a href="https://github.com/zmonx" target="_blank" rel="noopener noreferrer" class="profile-btn" style="background:#23292f;color:#fff;box-shadow:0 2px 8px rgba(35,41,47,0.10);font-size:1.07em;padding:10px 26px;">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub" style="width:20px;height:20px;vertical-align:middle;">&nbsp;GitHub
           </a>
         </div>
-        <div class="profile-skills">
-          <span>#flutter</span>
-          <span>#dart</span>
-          <span>#firebase</span>
-          <span>#bloc</span>
-          <span>#getx</span>
-          <span>#clean-architecture</span>
-          <span>#cross-platform</span>
-          <span>#plugin-architecture</span>
-          <span>#mobile</span>
-          <span>#android</span>
+        <div class="profile-skills" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:0.5em;">
+          <span style="background:linear-gradient(90deg,#0a66c2 60%,#7f53ff 100%);color:#fff;padding:6px 18px;border-radius:18px;font-size:1.07em;font-weight:600;box-shadow:0 1px 4px rgba(10,102,194,0.08);">#flutter</span>
+          <span style="background:#eaf1fb;color:#0a66c2;padding:6px 18px;border-radius:18px;font-size:1.07em;font-weight:600;">#dart</span>
+          <span style="background:#eaf1fb;color:#0a66c2;padding:6px 18px;border-radius:18px;font-size:1.07em;font-weight:600;">#firebase</span>
+          <span style="background:#eaf1fb;color:#0a66c2;padding:6px 18px;border-radius:18px;font-size:1.07em;font-weight:600;">#bloc</span>
+          <span style="background:#eaf1fb;color:#0a66c2;padding:6px 18px;border-radius:18px;font-size:1.07em;font-weight:600;">#getx</span>
+          <span style="background:#eaf1fb;color:#0a66c2;padding:6px 18px;border-radius:18px;font-size:1.07em;font-weight:600;">#clean-architecture</span>
+          <span style="background:#eaf1fb;color:#0a66c2;padding:6px 18px;border-radius:18px;font-size:1.07em;font-weight:600;">#cross-platform</span>
+          <span style="background:#eaf1fb;color:#0a66c2;padding:6px 18px;border-radius:18px;font-size:1.07em;font-weight:600;">#plugin-architecture</span>
+          <span style="background:#eaf1fb;color:#0a66c2;padding:6px 18px;border-radius:18px;font-size:1.07em;font-weight:600;">#mobile</span>
+          <span style="background:#eaf1fb;color:#0a66c2;padding:6px 18px;border-radius:18px;font-size:1.07em;font-weight:600;">#android</span>
         </div>
       </div>
     </section>
