@@ -28,7 +28,7 @@
 
     body {
       font-family: 'Kanit', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-      background: var(--primary-bg);
+      background: linear-gradient(rgba(243,246,251,0.85), rgba(243,246,251,0.85)), url('https://apptitude.ch/app/uploads/APP_illustration-flutter.jpg') center/cover no-repeat fixed;
       margin: 0;
       padding: 0;
       color: var(--text-main);
@@ -452,13 +452,14 @@
           list.innerHTML = '<li>No repositories found.</li>';
           return;
         }
-        // Filter repos created on or after 2021-08-04
+        // Separate recent and older repos around filter date
         const filterDate = new Date('2021-01-04');
-        repos = repos.filter(repo => new Date(repo.created_at) >= filterDate);
+        const olderRepos = repos.filter(repo => new Date(repo.created_at) < filterDate);
+        let recentRepos = repos.filter(repo => new Date(repo.created_at) >= filterDate);
         // Sort by last updated date (descending)
-        repos = repos.sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
+        recentRepos = recentRepos.sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
         list.innerHTML = '';
-        repos.forEach(repo => {
+        recentRepos.forEach(repo => {
           const li = document.createElement('li');
           li.className = 'repo-card';
           // Use shields.io for language badge if language is available
@@ -483,6 +484,16 @@
         `;
           list.appendChild(li);
         });
+        // If there are older repos, add a "View more" button linking to GitHub
+        if (olderRepos.length > 0) {
+          const moreLi = document.createElement('li');
+          moreLi.className = 'repo-card';
+          moreLi.innerHTML = `
+            <div style="padding:1.2em;display:flex;justify-content:center;align-items:center;height:100%;">
+              <a href="https://github.com/zmonx?tab=repositories" target="_blank" style="padding:8px 16px;background:var(--accent);color:#fff;border-radius:8px;text-decoration:none;">View more on GitHub</a>
+            </div>`;
+          list.appendChild(moreLi);
+        }
       } catch (e) {
         list.innerHTML = '<li>Failed to load repositories.</li>';
       }
